@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donkers PDF Tools</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>donkers PDF Tools</h1>
+            <p>Simple, fast, and secure PDF manipulation.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="merge">Merge PDFs</button>
+            <button class="tab-btn" data-tab="reverse">Reverse PDF</button>
+            <button class="tab-btn" data-tab="alt-merge">Alternate Merge</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Merge Section -->
+            <div id="merge" class="tab-pane active">
+                <h2>Merge Two PDFs</h2>
+                <p>Combine two PDF files into a single document.</p>
+                <form id="mergeForm">
+                    <div class="file-input-group">
+                        <label for="mergePdf1">Select First PDF</label>
+                        <input type="file" id="mergePdf1" name="pdfs" accept=".pdf" required>
+                    </div>
+                    <div class="file-input-group">
+                        <label for="mergePdf2">Select Second PDF</label>
+                        <input type="file" id="mergePdf2" name="pdfs" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="action-btn">Merge PDFs</button>
+                </form>
+            </div>
+
+            <!-- Reverse Section -->
+            <div id="reverse" class="tab-pane">
+                <h2>Reverse PDF</h2>
+                <p>Reverse the order of pages in a PDF file.</p>
+                <form id="reverseForm">
+                    <div class="file-input-group">
+                        <label for="reversePdf">Select PDF</label>
+                        <input type="file" id="reversePdf" name="pdf" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="action-btn">Reverse PDF</button>
+                </form>
+            </div>
+
+            <!-- Alt Merge Section -->
+            <div id="alt-merge" class="tab-pane">
+                <h2>Alternate Merge</h2>
+                <p>Merge two PDFs by interleaving their pages (e.g., Page 1 from A, Page 1 from B, Page 2 from A...).
+                </p>
+                <form id="altMergeForm">
+                    <div class="file-input-group">
+                        <label for="altMergePdf1">Select First PDF</label>
+                        <input type="file" id="altMergePdf1" name="pdfs" accept=".pdf" required>
+                    </div>
+                    <div class="file-input-group">
+                        <label for="altMergePdf2">Select Second PDF</label>
+                        <input type="file" id="altMergePdf2" name="pdfs" accept=".pdf" required>
+                    </div>
+                    <button type="submit" class="action-btn">Alternate Merge</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="status" class="status-message"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
