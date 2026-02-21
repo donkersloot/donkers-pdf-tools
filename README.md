@@ -8,6 +8,8 @@ A simple, secure, and fast web-based interface for manipulating PDF files.
 - **Reverse PDF**: Reverse the page order of a PDF file.
 - **Alternate Merge**: Interleave pages from two PDFs (e.g., Page 1 from A, Page 1 from B, Page 2 from A...).
 
+![Screenshot](public/screenshot.png "Screenshot")
+
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) (v12 or higher recommended)
