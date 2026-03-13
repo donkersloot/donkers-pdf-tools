@@ -55,3 +55,17 @@ node donkersPdfTools.js reverse input.pdf output.pdf
 # Merge two PDFs by interleaving their pages (e.g., Page 1 from A, Page 1 from B, Page 2 from A...)
 node donkersPdfTools.js altMerge input1.pdf input2.pdf output.pdf
 ```
+
+## Testing
+
+To run the automated test suite, ensure you have installed the dev dependencies:
+
+```bash
+npm install
+```
+
+Then, run the tests using:
+
+```bash
+npm test
+```

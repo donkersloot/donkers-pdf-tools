@@ -23,22 +23,31 @@ async function alternateMerge(pdfPath1, pdfPath2, outputPath) {
     const srcPages2 = srcDoc2.getPages();
 
     const copiedPages1 = await mergedPdf.copyPages(srcDoc1, srcDoc1.getPageIndices());
-    const copiedPages2 = await mergedPdf.copyPages(srcDoc2, srcDoc1.getPageIndices());
+    const copiedPages2 = await mergedPdf.copyPages(srcDoc2, srcDoc2.getPageIndices());
 
     let srcOffset1 = 0;
     let srcOffset2 = 0;
 
-    for (i = 0; i < srcPages1.length + srcPages2.length; i++) {
-
-        if (i % 2 == 0) {
-            mergedPdf.addPage(copiedPages1[srcOffset1]);
-            srcOffset1++;
-
+    for (let i = 0; i < srcPages1.length + srcPages2.length; i++) {
+        if (i % 2 === 0) {
+            if (srcOffset1 < copiedPages1.length) {
+                mergedPdf.addPage(copiedPages1[srcOffset1]);
+                srcOffset1++;
+            } else if (srcOffset2 < copiedPages2.length) {
+                // If doc1 is exhausted, just append from doc2
+                mergedPdf.addPage(copiedPages2[srcOffset2]);
+                srcOffset2++;
+            }
         } else {
-            mergedPdf.addPage(copiedPages2[srcOffset2]);
-            srcOffset2++;
+            if (srcOffset2 < copiedPages2.length) {
+                mergedPdf.addPage(copiedPages2[srcOffset2]);
+                srcOffset2++;
+            } else if (srcOffset1 < copiedPages1.length) {
+                // If doc2 is exhausted, just append from doc1
+                mergedPdf.addPage(copiedPages1[srcOffset1]);
+                srcOffset1++;
+            }
         }
-
     }
 
 

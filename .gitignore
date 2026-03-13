@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Output and uploads
+output/
+uploads/
+test_output/
+*.pdf
+
+# Operating system files
+.DS_Store
+Thumbs.db
